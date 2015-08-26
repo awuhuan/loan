@@ -5,7 +5,7 @@
     android:layout_gravity="center_horizontal"
     android:orientation="horizontal">
 
-    <WheelView
+    <com.souche.menu.widget.WheelView
         android:id="@+id/wheelview"
         android:layout_width="0dp"
         android:layout_height="150dp"

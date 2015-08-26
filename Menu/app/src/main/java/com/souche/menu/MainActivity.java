@@ -131,7 +131,6 @@ public class MainActivity extends BaseActicity
     @Override
     protected void onResume(){
         super.onResume();
-        onRefreshShow(true);
     }
 
 
@@ -245,7 +244,8 @@ public class MainActivity extends BaseActicity
                 for(int i =0;i<5;i++){
                     OrderModel orderModel = new OrderModel();
                     orderModel.setCarName("多点点的茶");
-                    orderModel.setOrderId(queryParam.getOrderFlow()+i);
+                    orderModel.setOrderId(queryParam.getOrderFlow() + i);
+                    orderModel.setOrderFlow(i*100+100+"");
                     orderModel.setBuyerPhone("15700129331");
                     orderModel.setSeller("15700129333");
                     mAdapter.mDataList.add(orderModel);
@@ -289,12 +289,8 @@ public class MainActivity extends BaseActicity
 
     public void onSectionAttached(int number) {
         mTitle = getResources().getStringArray(R.array.orderFlow)[number - 1];
-        if(number==2){
-            queryParam.setOrderFlow(200);
-
-        }else if(number==1){
-            queryParam.setOrderFlow(100);
-        }
+        queryParam.setOrderFlow(number*100);
+        queryParam.setStatus(getString(R.string.STATUS_VALID));
         mAdapter.mDataList.clear();
         sendPost(getOrderListUrl(queryParam), true, MainActivity.this);
         mAdapter.notifyDataSetChanged();
