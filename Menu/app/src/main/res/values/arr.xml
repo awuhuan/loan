@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="orderFlow">
+        <item>待处理订单</item>
+        <item>车商提交照片</item>
+        <item>录入信息</item>
+        <item>客户准备资料</item>
+        <item>机构审批</item>
+        <item>面签中</item>
+        <item>过户抵押中</item>
+        <item>贷款成功</item>
+        <item>失效订单</item>
+    </string-array>
+</resources>
