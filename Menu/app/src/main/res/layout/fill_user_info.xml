@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:id="@id/root_view"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        style="@style/TitleBar">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            style="@style/TV.TitleBarAction"
+            android:layout_alignParentLeft="true"
+            android:text="@string/back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TV.Title"
+            android:text="录入信息" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/banner" />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@+id/orderId"
+                        style="@style/TV.QueryParamDescNew"
+                        android:layout_centerVertical="true"
+                        android:text="@string/orderId" />
+
+                    <TextView
+                        android:id="@+id/tv_orderId"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@null"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_toRightOf="@id/orderId" />
+
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@+id/seller"
+                        style="@style/TV.QueryParamDescNew"
+                        android:layout_centerVertical="true"
+                        android:text="@string/sellerPhone" />
+
+                    <TextView
+                        android:id="@+id/tv_seller"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@null"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_toRightOf="@id/seller" />
+
+                </RelativeLayout>
+
+
+                <View style="@style/Horizontal_line_style" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@+id/car"
+                        style="@style/TV.QueryParamDescNew"
+                        android:layout_centerVertical="true"
+                        android:text="@string/carName" />
+
+                    <EditText
+                        android:id="@id/carName"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@null"
+                        android:inputType="text"
+                        android:maxLength="100"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_toRightOf="@id/car" />
+
+                </RelativeLayout>
+                <View style="@style/Horizontal_line_style" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@+id/vin"
+                        style="@style/TV.QueryParamDescNew"
+                        android:layout_centerVertical="true"
+                        android:text="@string/vin_ma" />
+
+                    <EditText
+                        android:id="@id/carVin"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@null"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_toRightOf="@id/vin" />
+
+                </RelativeLayout>
+                <View style="@style/Horizontal_line_style" />
+                <RelativeLayout
+                    android:id="@id/registTime"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@+id/time"
+                        style="@style/TV.QueryParamDescNew"
+                        android:layout_centerVertical="true"
+                        android:text="@string/registDate" />
+
+                    <TextView
+                        android:id="@+id/et_regist_time"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@null"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_toRightOf="@id/time" />
+
+                </RelativeLayout>
+                <View style="@style/Horizontal_line_style" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@id/buyerName"
+                        style="@style/TV.QueryParamDescNew"
+                        android:layout_centerVertical="true"
+                        android:text="@string/buyerName" />
+
+                    <EditText
+                        android:id="@+id/et_buyerName"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@null"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_toRightOf="@id/buyerName" />
+
+                </RelativeLayout>
+                <View style="@style/Horizontal_line_style" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@+id/identity"
+                        style="@style/TV.QueryParamDescNew"
+                        android:layout_centerVertical="true"
+                        android:text="@string/identity" />
+
+                    <EditText
+                        android:id="@+id/et_identity"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@null"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_toRightOf="@id/identity" />
+
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_submit"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_brandcolor_5c"
+                android:gravity="center"
+                android:text="@string/submit"
+                android:textColor="@drawable/selector_textcolor_transwhite_white"
+                android:textSize="@dimen/largetext" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        style="@style/TitleBar">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            style="@style/TV.TitleBarAction"
+            android:layout_alignParentLeft="true"
+            android:text="@string/back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TV.Title"
+            android:text="电审结果" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <View style="@style/Horizontal_line_style" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@+id/tv_seller"
+                        style="@style/TV.InputDesc"
+                        android:layout_centerVertical="true"
+                        android:text="卖家电话" />
+
+                    <EditText
+                        android:id="@+id/ev_seller"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/tv_seller"
+                        android:background="@null"
+                        android:hint="卖家电话"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@+id/name"
+                        style="@style/TV.InputDesc"
+                        android:layout_centerVertical="true"
+                        android:text="买家姓名" />
+
+                    <EditText
+                        android:id="@+id/ev_buyerName"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/name"
+                        android:background="@null"
+                        android:hint="贷款人姓名"
+                        android:inputType="text"
+                        android:maxLength="20"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:id="@+id/phone"
+                        style="@style/TV.InputDesc"
+                        android:layout_centerVertical="true"
+                        android:text="买家电话" />
+
+                    <EditText
+                        android:id="@+id/ev_buyerPhone"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/phone"
+                        android:background="@null"
+                        android:hint="贷款人电话"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TV.InputDesc"
+                        android:layout_marginTop="10dp"
+                        android:text="备注" />
+
+                    <EditText
+                        android:id="@+id/ev_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@null"
+                        android:gravity="left|top"
+                        android:hint="请输入资质信息"
+                        android:lineSpacingExtra="5dp"
+                        android:maxLines="4"
+                        android:scrollbars="vertical"
+                        android:singleLine="false"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:id="@id/company"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="4dp">
+
+                    </RadioGroup>
+
+                    <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="50dp">-->
+
+                    <!--<CheckBox-->
+                    <!--android:id="@+id/transfer_checkbox"-->
+                    <!--android:text="平安银行    月还款额1000   总利息 10000"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="@dimen/checkbox_textsize"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:checked="true"-->
+                    <!--android:layout_alignParentStart="true"-->
+                    <!--android:button="@drawable/bg_publish_car_checkbox" />-->
+
+                    <!--</RelativeLayout>-->
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View style="@style/Horizontal_line_style" />
+
+            <LinearLayout
+                android:id="@+id/tool_ll"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_can_loan"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_red_5c"
+                    android:gravity="center"
+                    android:text="确认贷款"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_weight="0.6"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_cannot_loan"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_btn_red_5c"
+                        android:gravity="center"
+                        android:text="贷不了"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_weight="0.4"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_only_consult"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_btn_red_5c"
+                        android:gravity="center"
+                        android:text="不贷款/仅咨询"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

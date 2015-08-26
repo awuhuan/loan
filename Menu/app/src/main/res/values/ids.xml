@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="queryOrderId" type="id" />
+    <item name="queryCar" type="id" />
+    <item name="queryBuyerPhone" type="id" />
+    <item name="querySellerPhone" type="id" />
+    <item name="queryVin" type="id" />
+    <item name="queryApplyCity" type="id" />
+    <item name="queryDateStart" type="id" />
+    <item name="queryDateEnd" type="id" />
+    <item name="tv_publish_time" type="id" />
+    <item name="tv_message" type="id" />
+    <item name="buyerName" type="id" />
+    <item name="buyerPhone" type="id" />
+    <item name="sellerPhone" type="id" />
+    <item name="sellerName" type="id" />
+    <item name="company" type="id" />
+    <item name="contact" type="id" />
+    <item name="contactPhone" type="id" />
+    <item name="price" type="id" />
+    <item name="carVin" type="id" />
+    <item name="carName" type="id" />
+    <item name="auditAmount" type="id" />
+    <item name="auditTime" type="id" />
+    <item name="interviewAmount" type="id" />
+    <item name="interviewTime" type="id" />
+    <item name="confirmTransferResultTime" type="id" />
+    <item name="evaluationMsg" type="id" />
+    <item name="evaluation" type="id" />
+    <item name="root_view" type="id" />
+    <item name="registTime" type="id" />
+
+</resources>

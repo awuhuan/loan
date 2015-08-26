@@ -12,4 +12,85 @@
         <item>贷款成功</item>
         <item>失效订单</item>
     </string-array>
+
+
+
+
+
+    <string-array name="mileage">
+        <item>8万以下</item>
+        <item>8－10万</item>
+        <item>10－12万</item>
+        <item>12-15万</item>
+        <item>15-20万</item>
+        <item>20万以上</item>
+    </string-array>
+
+    <string-array name="mileageParam">
+        <item>0-80000</item>
+        <item>80000－100000</item>
+        <item>100000－120000</item>
+        <item>120000-150000</item>
+        <item>150000-200000</item>
+        <item>200000-1000000</item>
+    </string-array>
+
+
+    <string-array name="seatCount">
+        <item>7座以下</item>
+        <item>8-9座</item>
+        <item>9座以上</item>
+    </string-array>
+
+
+    <string-array name="seatCountParam">
+        <item>0-7</item>
+        <item>8-9</item>
+        <item>10-100</item>
+    </string-array>
+
+    <string-array name="isLoacal">
+        <item>省内户口</item>
+        <item>省外户口</item>
+    </string-array>
+
+    <string-array name="useWay">
+        <item>个人牌照用</item>
+        <item>公司牌照用</item>
+    </string-array>
+
+
+    <string-array name="loanPeriod">
+        <item>12个月</item>
+        <item>24个月</item>
+        <item>36个月</item>
+    </string-array>
+
+    <string-array name="canOrNot">
+        <item>能</item>
+        <item>不能</item>
+    </string-array>
+
+    <string-array name="yesOrNot">
+        <item>是</item>
+        <item>不是</item>
+    </string-array>
+
+    <string-array  name="loanPeriodParam">
+        <item>12</item>
+        <item>24</item>
+        <item>36</item>
+    </string-array>
+
+
+    <string-array  name="yesOrNo">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+
+    <string-array name="oneOrTwo">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

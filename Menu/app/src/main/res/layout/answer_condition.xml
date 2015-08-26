@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@id/root_view"
+    >
+
+
+
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            style="@style/TitleBar">
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                style="@style/TV.TitleBarAction"
+                android:layout_alignParentLeft="true"
+                android:text="@string/back" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/TV.Title"
+                android:text="电审结果" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <View style="@style/Horizontal_line_style" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/tv_seller"
+                        android:textSize="14dp"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="卖家电话" />
+                    <TextView
+                        android:id="@+id/tv_order"
+                        android:textSize="14dp"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="订单编号"
+                        android:layout_alignTop="@+id/tv_seller"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                         />
+
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:id="@+id/settleCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/city"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="上牌城市" />
+
+                    <Spinner
+                        android:id="@+id/tv_settleCity"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:textSize="14sp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/city"
+                        android:layout_toEndOf="@id/city" />
+
+
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/tv_settleCity"-->
+                        <!--android:layout_width="180dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:hint="必填"-->
+                        <!--android:paddingBottom="5dp"-->
+                        <!--android:paddingTop="5dp"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:textColor="@color/queryInputText"-->
+                        <!--android:textColorHint="@color/queryInputHint"-->
+                        <!--android:textSize="14sp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_toRightOf="@id/city"-->
+                        <!--android:layout_toEndOf="@id/city" />-->
+                </RelativeLayout>
+                <View style="@style/Horizontal_line_style" />
+                <RelativeLayout
+                    android:id="@+id/mileage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/tv_ml"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="行驶里程" />
+
+                    <TextView
+                        android:id="@+id/tv_mileage"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="必填"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tv_ml"
+                        android:layout_toEndOf="@+id/tv_ml" />
+                </RelativeLayout>
+              <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:id="@+id/seatCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/seat"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="@string/seatCount" />
+                    <TextView
+                        android:id="@+id/tv_seatCount"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="必填"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/seat"
+                        android:layout_toEndOf="@+id/seat" />
+
+
+                </RelativeLayout>
+
+
+                <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:id="@+id/carUseWay"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/useWay"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="@string/isloacal" />
+
+
+                    <TextView
+                        android:id="@+id/tv_carUseWay"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="必填"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:layout_marginLeft="30dp"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/useWay"
+                        android:layout_toEndOf="@+id/useWay"
+                        />
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+
+
+                <RelativeLayout
+                    android:id="@id/registTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/time"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="@string/registTime" />
+
+
+                    <TextView
+                        android:id="@+id/tv_registTime"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="必填"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:inputType="date"
+                        android:singleLine="true"
+                        android:layout_marginLeft="30dp"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/time"
+                        android:layout_toEndOf="@+id/time"
+                        />
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+
+
+
+                <RelativeLayout
+                    android:id="@+id/loanPeriod"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/period"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="@string/loanPeriod" />
+
+
+                    <TextView
+                        android:id="@+id/tv_loanPeriod"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="必填"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:layout_marginLeft="30dp"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/period"
+                        android:layout_toEndOf="@+id/period"
+                        />
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+
+
+
+                <RelativeLayout
+                    android:id="@+id/isLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/loacal"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="@string/isloacal" />
+
+
+                    <TextView
+                        android:id="@+id/tv_isLocal"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="必填"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:layout_marginLeft="30dp"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/loacal"
+                        android:layout_toEndOf="@+id/loacal"
+                         />
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:id="@+id/hasHouse"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/house"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="@string/hasHouse" />
+
+                    <TextView
+                        android:id="@+id/tv_hasHouse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="必填"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/house"
+                        android:layout_toEndOf="@+id/house"
+                         />
+
+
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:id="@+id/bankFlow"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/flow"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="@string/hasBankFlow" />
+
+                    <TextView
+                        android:id="@+id/tv_bankFlow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="必填"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/flow"
+                        android:layout_toEndOf="@+id/flow"
+                        />
+
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:id="@+id/inCome"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/come"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="@string/hasIncome" />
+
+                    <TextView
+                        android:id="@+id/tv_inCome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="必填"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/come"
+                        android:layout_toEndOf="@+id/come"
+                        />
+
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:id="@+id/hasAssure"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/assure"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="@string/hasAssure" />
+
+                    <TextView
+                        android:id="@+id/tv_hasAssure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="必填"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/assure"
+                        android:layout_toEndOf="@+id/assure"
+                        />
+
+                </RelativeLayout>
+
+
+                <View style="@style/Horizontal_line_style" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/carPrice"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="车辆成交价" />
+
+                    <EditText
+                        android:id="@+id/tv_carPrice"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/carPrice"
+                        android:background="@null"
+                        android:hint="单位是元"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <View style="@style/Horizontal_line_style" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/answerline">
+
+                    <TextView
+                        android:id="@+id/loanAmount"
+                        style="@style/TV.InputAnswer"
+                        android:layout_centerVertical="true"
+                        android:text="拟贷款金额" />
+
+                    <EditText
+                        android:id="@+id/tv_loanAmount"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/loanAmount"
+                        android:background="@null"
+                        android:hint="单位是元"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/queryInputText"
+                        android:textColorHint="@color/queryInputHint"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <View style="@style/Horizontal_line_style" />
+
+            <LinearLayout
+                android:id="@+id/tool_ll"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="50dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_submit"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_red_5c"
+                    android:gravity="center"
+                    android:text="@string/submit"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</ScrollView>

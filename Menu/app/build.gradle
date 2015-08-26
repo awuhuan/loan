@@ -19,7 +19,31 @@ android {
     }
 }
 
+android {
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.google.android.gms:play-services:7.5.0'
+    compile 'com.android.support:support-v4:22.2.0'
+    compile 'commons-lang:commons-lang:2.6'
+    compile 'se.emilsjolander:stickylistheaders:2.+'
+    compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.android.support:appcompat-v7:22.2.0'
+    compile files('libs/httpmime-4.2.5.jar')
+    compile files('libs/json-lib-0.8.jar')
+    compile files('libs/volley.jar')
+    compile files('libs/universal-image-loader-1.8.6-with-sources.jar')
 }

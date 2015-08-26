@@ -16,6 +16,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activity.QueryActivity"
+            android:label="@string/action_query" >
+        </activity>
+
+        <activity
+            android:name=".activity.DetailActivity"
+            android:label="@string/title_activity_detail" >
+        </activity>
+        <activity
+            android:name=".activity.AnswerConditionActivity"
+            android:label="@string/title_activity_detail" >
+        </activity>
+
+        <activity
+            android:name=".activity.BannerActivity"
+            android:label="@string/title_activity_detail" >
+        </activity>
+        <activity
+            android:name=".activity.CheckLoanActivity"
+            android:label="@string/title_activity_detail" >
+        </activity>
+
+
+
     </application>
 
 </manifest>
