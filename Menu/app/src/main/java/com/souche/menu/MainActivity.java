@@ -2,6 +2,7 @@ package com.souche.menu;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,17 +11,20 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.souche.menu.activity.AnswerConditionActivity;
-import com.souche.menu.activity.BaseActicity;
+import com.souche.menu.activity.BaseBarActivity;
 import com.souche.menu.activity.DetailActivity;
 import com.souche.menu.adapter.OrderListAdapter;
 import com.souche.menu.model.OrderModel;
@@ -33,7 +37,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class MainActivity extends BaseActicity
+public class MainActivity extends BaseBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,XListView.IXListViewListener {
 
     /**
@@ -79,7 +83,7 @@ public class MainActivity extends BaseActicity
 
         queryParam = new QueryParam();
         queryParam.setOrderFlow(100);
-
+        queryParam.setStatus(getString(R.string.STATUS_VALID));
 
         mListView = (XListView) findViewById(R.id.xListView);
         mListView.setPullLoadEnable(true);
@@ -235,19 +239,9 @@ public class MainActivity extends BaseActicity
                 JSONArray jsonArray = photos.getJSONArray("items");
 
                 for(int index = 0 ; index < jsonArray.length(); index++) {
-
                     JSONObject jsonObj = jsonArray.getJSONObject(index);
                     Gson gson = new Gson();
                     OrderModel orderModel = gson.fromJson(jsonObj.toString(),OrderModel.class);
-                    mAdapter.mDataList.add(orderModel);
-                }
-                for(int i =0;i<5;i++){
-                    OrderModel orderModel = new OrderModel();
-                    orderModel.setCarName("多点点的茶");
-                    orderModel.setOrderId(queryParam.getOrderFlow() + i);
-                    orderModel.setOrderFlow(i*100+100+"");
-                    orderModel.setBuyerPhone("15700129331");
-                    orderModel.setSeller("15700129333");
                     mAdapter.mDataList.add(orderModel);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -256,6 +250,87 @@ public class MainActivity extends BaseActicity
             }
         }
     }
+
+
+    @Override
+    public void showQuery(){
+        LayoutInflater inflater = LayoutInflater.from(this);
+        final View textEntryView = inflater.inflate(
+                R.layout.query, null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setView(textEntryView);
+        builder.setPositiveButton("查询",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        setQueryParam(textEntryView);
+                        mAdapter.mDataList.clear();
+                        sendPost(getOrderListUrl(queryParam), true, MainActivity.this);
+                        mAdapter = getOrderListAdapter();
+                        mListView.setAdapter(mAdapter);
+
+
+                    }
+                });
+        builder.setNegativeButton("取消",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                    }
+                });
+        builder.show();
+    }
+
+
+
+    private void setQueryParam(final View textEntryView){
+        EditText orderId = (EditText) textEntryView.findViewById(R.id.queryOrderId);
+        EditText carName = (EditText) textEntryView.findViewById(R.id.queryCar);
+        EditText buyerPhone = (EditText) textEntryView.findViewById(R.id.queryBuyerPhone);
+        EditText sellerPhone = (EditText) textEntryView.findViewById(R.id.querySellerPhone);
+        EditText city = (EditText) textEntryView.findViewById(R.id.queryApplyCity);
+        TextView startDate = (TextView) textEntryView.findViewById(R.id.queryDateStart);
+        TextView endDate = (TextView) textEntryView.findViewById(R.id.queryDateEnd);
+
+        if(StringUtils.isNotBlank(orderId.getText().toString().trim())){
+            queryParam.setOrderId(Integer.valueOf(orderId.getText().toString().trim()));
+        }
+        if(StringUtils.isNotBlank(carName.getText().toString().trim())){
+            queryParam.setCarName(carName.getText().toString().trim());
+        }
+        if(StringUtils.isNotBlank(buyerPhone.getText().toString().trim())){
+            queryParam.setBuyPhone(buyerPhone.getText().toString().trim());
+        }
+
+        if(StringUtils.isNotBlank(sellerPhone.getText().toString().trim())){
+            queryParam.setSellPhone(sellerPhone.getText().toString().trim());
+        }
+        if(StringUtils.isNotBlank(city.getText().toString().trim())){
+            queryParam.setApplyCity(city.getText().toString().trim());
+        }
+        if(StringUtils.isNotBlank(startDate.getText().toString().trim())){
+            queryParam.setTimeBegin(startDate.getText().toString().trim());
+        }
+        if(StringUtils.isNotBlank(endDate.getText().toString().trim())){
+            queryParam.setTimeEnd(endDate.getText().toString().trim());
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -289,6 +364,7 @@ public class MainActivity extends BaseActicity
 
     public void onSectionAttached(int number) {
         mTitle = getResources().getStringArray(R.array.orderFlow)[number - 1];
+        queryParam = new QueryParam();
         queryParam.setOrderFlow(number*100);
         queryParam.setStatus(getString(R.string.STATUS_VALID));
         mAdapter.mDataList.clear();

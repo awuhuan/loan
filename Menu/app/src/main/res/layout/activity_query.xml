@@ -47,7 +47,7 @@
                         android:id="@+id/orderId"
                         style="@style/TV.QueryParamDescNew"
                         android:layout_centerVertical="true"
-                        android:text="@string/vin_ma" />
+                        android:text="@string/orderId" />
 
                     <EditText
                         android:id="@id/queryOrderId"

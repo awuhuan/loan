@@ -78,8 +78,9 @@ public class OrderListAdapter extends BaseAdapter {
         }
 
         if (StringUtils.isNotBlank(orderModel.getIdA())) {
-
             mImageLoader.displayImage(mDataList.get(position).getIdA(), holder.img);
+        }else {
+           holder.img.setImageResource(R.drawable.car_placeholder);
         }
 
         holder.orderId.setText(String.valueOf(mDataList.get(position).getOrderId()));
