@@ -377,8 +377,7 @@ public class MainActivity extends BaseBarActivity
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
-
-
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.redBar));
     }
 
 

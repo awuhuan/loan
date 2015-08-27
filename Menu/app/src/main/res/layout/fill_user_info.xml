@@ -262,7 +262,7 @@
             <TextView
                 android:id="@+id/tv_submit"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="15dp"
                 android:layout_marginLeft="30dp"

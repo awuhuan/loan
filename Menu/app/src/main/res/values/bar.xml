@@ -1,0 +1,3 @@
+<resources>
+    <drawable name="redBar">@color/brand_color</drawable>
+</resources>

@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="vertical"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="60dp">
 
             <View style="@style/Horizontal_line_style" />
 
@@ -324,7 +324,7 @@
                 <TextView
                     android:id="@+id/submitQuery"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/submit"
