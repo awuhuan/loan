@@ -1,6 +1,8 @@
 package com.souche.menu;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,14 +14,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -36,6 +41,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 
 public class MainActivity extends BaseBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,XListView.IXListViewListener {
@@ -49,6 +56,9 @@ public class MainActivity extends BaseBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+    private long exitTime = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -255,15 +265,30 @@ public class MainActivity extends BaseBarActivity
     @Override
     public void showQuery(){
         LayoutInflater inflater = LayoutInflater.from(this);
-        final View textEntryView = inflater.inflate(
+         textEntryView = inflater.inflate(
                 R.layout.query, null);
+
+        textEntryView.findViewById(R.id.dateStart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCreateDialog(v.getId()).show();
+            }
+        });
+        textEntryView.findViewById(R.id.dateEnd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCreateDialog(v.getId()).show();
+            }
+        });
+
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);
         builder.setView(textEntryView);
         builder.setPositiveButton("查询",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        setQueryParam(textEntryView);
+                        setQueryParam();
                         mAdapter.mDataList.clear();
                         sendPost(getOrderListUrl(queryParam), true, MainActivity.this);
                         mAdapter = getOrderListAdapter();
@@ -282,8 +307,43 @@ public class MainActivity extends BaseBarActivity
     }
 
 
+    @Override
+    protected Dialog onCreateDialog(final int rid) {
+        Calendar c = Calendar.getInstance();
+        Dialog dialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    public void onDateSet(DatePicker dp, int year, int month, int dayOfMonth) {
+                        setDateText(rid,year + "-" + (month + 1) + "-" + dayOfMonth);
+                    }
+                },
+                c.get(Calendar.YEAR), // 传入年份
+                c.get(Calendar.MONTH), // 传入月份
+                c.get(Calendar.DAY_OF_MONTH) // 传入天数
+        );
 
-    private void setQueryParam(final View textEntryView){
+        return dialog;
+    }
+
+     View textEntryView;
+
+
+
+    private void setDateText(int rid,String time){
+        TextView startTime = (TextView)textEntryView.findViewById(R.id.queryDateStart);
+        TextView endTime = (TextView)textEntryView.findViewById(R.id.queryDateEnd);
+
+        switch (rid){
+            case R.id.dateStart:
+                   startTime.setText(time);
+                break;
+            case R.id.dateEnd:
+                endTime.setText(time);
+                break;
+        }
+    }
+
+
+    private void setQueryParam(){
         EditText orderId = (EditText) textEntryView.findViewById(R.id.queryOrderId);
         EditText carName = (EditText) textEntryView.findViewById(R.id.queryCar);
         EditText buyerPhone = (EditText) textEntryView.findViewById(R.id.queryBuyerPhone);
@@ -319,6 +379,20 @@ public class MainActivity extends BaseBarActivity
 
 
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 
 
