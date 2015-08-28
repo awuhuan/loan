@@ -59,6 +59,8 @@ public class MainActivity extends BaseBarActivity
 
     private long exitTime = 0;
 
+    View queryView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,7 +208,7 @@ public class MainActivity extends BaseBarActivity
 
 
         if(StringUtils.isNotBlank(queryParam.getBuyPhone())){
-            builder.appendQueryParameter("buyerPhone",queryParam.getBuyPhone());
+            builder.appendQueryParameter("buyPhone",queryParam.getBuyPhone());
         }
 
 
@@ -265,16 +267,16 @@ public class MainActivity extends BaseBarActivity
     @Override
     public void showQuery(){
         LayoutInflater inflater = LayoutInflater.from(this);
-         textEntryView = inflater.inflate(
+        queryView = inflater.inflate(
                 R.layout.query, null);
 
-        textEntryView.findViewById(R.id.dateStart).setOnClickListener(new View.OnClickListener() {
+        queryView.findViewById(R.id.dateStart).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onCreateDialog(v.getId()).show();
             }
         });
-        textEntryView.findViewById(R.id.dateEnd).setOnClickListener(new View.OnClickListener() {
+        queryView.findViewById(R.id.dateEnd).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onCreateDialog(v.getId()).show();
@@ -284,8 +286,8 @@ public class MainActivity extends BaseBarActivity
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);
-        builder.setView(textEntryView);
-        builder.setPositiveButton("查询",
+        builder.setView(queryView);
+        builder.setPositiveButton(getString(R.string.action_query),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         setQueryParam();
@@ -293,11 +295,9 @@ public class MainActivity extends BaseBarActivity
                         sendPost(getOrderListUrl(queryParam), true, MainActivity.this);
                         mAdapter = getOrderListAdapter();
                         mListView.setAdapter(mAdapter);
-
-
                     }
                 });
-        builder.setNegativeButton("取消",
+        builder.setNegativeButton(getString(R.string.action_cancel),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
 
@@ -324,13 +324,13 @@ public class MainActivity extends BaseBarActivity
         return dialog;
     }
 
-     View textEntryView;
+
 
 
 
     private void setDateText(int rid,String time){
-        TextView startTime = (TextView)textEntryView.findViewById(R.id.queryDateStart);
-        TextView endTime = (TextView)textEntryView.findViewById(R.id.queryDateEnd);
+        TextView startTime = (TextView)queryView.findViewById(R.id.queryDateStart);
+        TextView endTime = (TextView)queryView.findViewById(R.id.queryDateEnd);
 
         switch (rid){
             case R.id.dateStart:
@@ -344,13 +344,13 @@ public class MainActivity extends BaseBarActivity
 
 
     private void setQueryParam(){
-        EditText orderId = (EditText) textEntryView.findViewById(R.id.queryOrderId);
-        EditText carName = (EditText) textEntryView.findViewById(R.id.queryCar);
-        EditText buyerPhone = (EditText) textEntryView.findViewById(R.id.queryBuyerPhone);
-        EditText sellerPhone = (EditText) textEntryView.findViewById(R.id.querySellerPhone);
-        EditText city = (EditText) textEntryView.findViewById(R.id.queryApplyCity);
-        TextView startDate = (TextView) textEntryView.findViewById(R.id.queryDateStart);
-        TextView endDate = (TextView) textEntryView.findViewById(R.id.queryDateEnd);
+        EditText orderId = (EditText) queryView.findViewById(R.id.queryOrderId);
+        EditText carName = (EditText) queryView.findViewById(R.id.queryCar);
+        EditText buyerPhone = (EditText) queryView.findViewById(R.id.queryBuyerPhone);
+        EditText sellerPhone = (EditText) queryView.findViewById(R.id.querySellerPhone);
+        EditText city = (EditText) queryView.findViewById(R.id.queryApplyCity);
+        TextView startDate = (TextView) queryView.findViewById(R.id.queryDateStart);
+        TextView endDate = (TextView) queryView.findViewById(R.id.queryDateEnd);
 
         if(StringUtils.isNotBlank(orderId.getText().toString().trim())){
             queryParam.setOrderId(Integer.valueOf(orderId.getText().toString().trim()));
@@ -383,7 +383,7 @@ public class MainActivity extends BaseBarActivity
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
             if ((System.currentTimeMillis() - exitTime) > 2000) {
-                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.double_click_exit), Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
             } else {
                 finish();

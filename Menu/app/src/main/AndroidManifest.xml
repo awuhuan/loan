@@ -24,11 +24,6 @@
         </activity>
 
         <activity
-            android:name=".activity.QueryActivity"
-            android:label="@string/action_query" >
-        </activity>
-
-        <activity
             android:name=".activity.DetailActivity"
             android:label="@string/title_activity_detail" >
         </activity>

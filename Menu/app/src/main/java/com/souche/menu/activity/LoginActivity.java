@@ -39,7 +39,7 @@ public class LoginActivity extends BaseActicity implements View.OnClickListener 
             return;
         }
         if (vid == R.id.tv_submit) {
-            //将输入法隐藏，mPasswordEditText 代表密码输入框
+            //将输入法隐藏，tv_pwd 代表密码输入框
             InputMethodManager imm =(InputMethodManager)getSystemService(
                     Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(tv_pwd.getWindowToken(), 0);
