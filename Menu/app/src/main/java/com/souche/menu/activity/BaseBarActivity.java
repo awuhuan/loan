@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -29,6 +30,10 @@ public class BaseBarActivity extends ActionBarActivity {
 
 
     private ProgressDialog mProgress;
+
+    private static long lastClickTime;
+    private static int lastClickViewId;
+    private static final int KEY_PREVENT_TS = -20000;
 
 
     @Override
@@ -101,6 +106,29 @@ public class BaseBarActivity extends ActionBarActivity {
         mVolleyQueue.add(jsonObjRequest);
     }
 
+    /**
+     * 判断是否异常的双击（300毫秒内不能点击不同控件，500毫秒内不能点击相同控件）
+     *
+     * @return
+     */
+    public static boolean isFastDoubleClick(View v) {
+        long now = System.currentTimeMillis();
+        //检查是否被阻止点击
+        if (v.getTag(KEY_PREVENT_TS) != null && v.getTag(KEY_PREVENT_TS) instanceof Long) {
+            if ((Long) v.getTag(KEY_PREVENT_TS) > now) {
+                return true;
+            }
+        }
+        long interval = now - lastClickTime;
+        if (lastClickViewId == v.getId() && interval < 500) {
+            return true;
+        } else if (interval < 300) {
+            return true;
+        }
+        lastClickViewId = v.getId();
+        lastClickTime = now;
+        return false;
+    }
 
     protected void showToast(final Context context,final String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show();

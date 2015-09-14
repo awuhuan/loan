@@ -273,6 +273,9 @@ public class MainActivity extends BaseBarActivity
         queryView.findViewById(R.id.dateStart).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(isFastDoubleClick(v)){
+                    return;
+                }
                 onCreateDialog(v.getId()).show();
             }
         });
