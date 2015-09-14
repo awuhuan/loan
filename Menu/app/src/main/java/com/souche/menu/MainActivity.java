@@ -442,8 +442,14 @@ public class MainActivity extends BaseBarActivity
     public void onSectionAttached(int number) {
         mTitle = getResources().getStringArray(R.array.orderFlow)[number - 1];
         queryParam = new QueryParam();
-        queryParam.setOrderFlow(number*100);
-        queryParam.setStatus(getString(R.string.STATUS_VALID));
+        int flow =number * 100;
+        if(900==flow){
+            queryParam.setStatus(getString(R.string.STATUS_INVALID));
+        }else {
+            queryParam.setStatus(getString(R.string.STATUS_VALID));
+            queryParam.setOrderFlow(flow);
+        }
+
         mAdapter.mDataList.clear();
         sendPost(getOrderListUrl(queryParam), true, MainActivity.this);
         mAdapter.notifyDataSetChanged();
