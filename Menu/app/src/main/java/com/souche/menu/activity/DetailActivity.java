@@ -100,30 +100,21 @@ public class DetailActivity extends BaseActicity implements View.OnClickListener
     private void findBtnViewTwo() {
         setContentView(R.layout.two_detail);
         btnOne = (TextView) findViewById(R.id.btnOne);
-        btnTwo = (TextView) findViewById(R.id.btnTwo);
-
-        btnOne.setText(R.string.reSendMartal);
-        btnTwo.setText(R.string.cancelOrder);
-
+        btnOne.setText(R.string.cancelOrder);
         btnOne.setOnClickListener(this);
-        btnTwo.setOnClickListener(this);
-
-
     }
 
     private void findBtnViewThree() {
         setContentView(R.layout.three_detail);
         btnOne = (TextView) findViewById(R.id.btnOne);
         btnTwo = (TextView) findViewById(R.id.btnTwo);
-        btnThree = (TextView) findViewById(R.id.btnThree);
+
 
         btnOne.setText(R.string.fillInfo);
-        btnTwo.setText(R.string.reSendMartal);
-        btnThree.setText(R.string.cancelOrder);
+        btnTwo.setText(R.string.cancelOrder);
 
         btnOne.setOnClickListener(this);
         btnTwo.setOnClickListener(this);
-        btnThree.setOnClickListener(this);
 
     }
 
@@ -131,15 +122,12 @@ public class DetailActivity extends BaseActicity implements View.OnClickListener
         setContentView(R.layout.four_detail);
         btnOne = (TextView) findViewById(R.id.btnOne);
         btnTwo = (TextView) findViewById(R.id.btnTwo);
-        btnThree = (TextView) findViewById(R.id.btnThree);
 
         btnOne.setText(R.string.readyOk);
-        btnTwo.setText(R.string.reSendMartal);
-        btnThree.setText(R.string.cancelOrder);
+        btnTwo.setText(R.string.cancelOrder);
 
         btnOne.setOnClickListener(this);
         btnTwo.setOnClickListener(this);
-        btnThree.setOnClickListener(this);
     }
 
     private void findBtnViewFive() {
@@ -331,8 +319,6 @@ public class DetailActivity extends BaseActicity implements View.OnClickListener
     private void showTwo(View view) {
         Integer vid = view.getId();
         if (vid == R.id.btnOne) {
-            showReSendMsg();
-        } else if (vid == R.id.btnTwo) {
             showCancelOrder();
         }
     }
@@ -347,8 +333,6 @@ public class DetailActivity extends BaseActicity implements View.OnClickListener
             intent.putExtras(bundle);
             startActivity(intent);
         } else if (vid == R.id.btnTwo) {
-            showReSendMsg();
-        } else if (vid == R.id.btnThree) {
             showCancelOrder();
         }
     }
@@ -356,13 +340,8 @@ public class DetailActivity extends BaseActicity implements View.OnClickListener
     private void showFour(View view) {
         Integer vid = view.getId();
         if (vid == R.id.btnOne) {
-
             showConfirmDialog();
-
-
         } else if (vid == R.id.btnTwo) {
-            showReSendMsg();
-        } else if (vid == R.id.btnThree) {
             showCancelOrder();
         }
     }
